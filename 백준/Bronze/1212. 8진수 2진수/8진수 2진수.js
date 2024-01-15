@@ -8,7 +8,7 @@ const input = fs
   .split("\n")[0];
 
 function solution(sum) {
-  let answer = [];
+  let answer = "";
 
   if (sum.length === 1 && sum[0] === "0") {
     return "0";
@@ -16,14 +16,14 @@ function solution(sum) {
 
   for (let i = 0; i < sum.length; i++) {
     const binaryDigit = parseInt(sum[i], 8).toString(2).padStart(3, "0");
-    answer.push(...binaryDigit);
+    answer += binaryDigit;
   }
 
   while (answer[0] === "0") {
-    answer.shift();
+    answer = answer.substring(1);
   }
 
-  return answer.join("");
+  return answer;
 }
 
 console.log(solution(input));
