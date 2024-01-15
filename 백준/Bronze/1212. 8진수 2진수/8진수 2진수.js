@@ -9,20 +9,16 @@ const input = fs
 
 function solution(sum) {
   let answer = "";
-
   if (sum.length === 1 && sum[0] === "0") {
     return "0";
   }
-
   for (let i = 0; i < sum.length; i++) {
     const binaryDigit = parseInt(sum[i], 8).toString(2).padStart(3, "0");
     answer += binaryDigit;
   }
-
   while (answer[0] === "0") {
     answer = answer.substring(1);
   }
-
   return answer;
 }
 
